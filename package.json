@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/SimonVS97/myFlix-client2/issues"
   },
-  "homepage": "https://github.com/SimonVS97/myFlix-client2#readme"
+  "homepage": "https://github.com/SimonVS97/myFlix-client2#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
