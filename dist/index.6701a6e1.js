@@ -25271,7 +25271,7 @@ class MainView extends _reactDefault.default.Component {
                     _id: 2,
                     Title: 'The Shawshank Redemption',
                     Description: 'desc2...',
-                    ImagePath: '...'
+                    ImagePath: '..'
                 },
                 {
                     _id: 3,
