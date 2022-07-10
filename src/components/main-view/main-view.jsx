@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { json } from 'body-parser';
 
 export class MainView extends React.Component {
 
@@ -15,7 +16,7 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('https://movie-app-svs.herokuapp.com/')
+    axios.get('https://movie-app-svs.herokuapp.com/movies')
       .then(response => {
         this.setState({
           movies: response.data
@@ -36,11 +37,10 @@ export class MainView extends React.Component {
     const movies = this.state.movies;
     const selectedMovie = this.state.selectedMovie;
 
-    if (selectedMovie) return <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+    if (movies.length === 0) return <div className='main-view'></div>;
 
-    if (movies.length === 0) {
-      return <div className="main-view">The list is empty!</div>;
-    } else {
+    if (selectedMovie) return <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+    else {
       return (
         <div className="main-view">
           {movies.map((movie) => {
