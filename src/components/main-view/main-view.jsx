@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { LoginView } from '../login-view/LoginView';
 import { json } from 'body-parser';
 
 export class MainView extends React.Component {
@@ -45,6 +46,10 @@ export class MainView extends React.Component {
   render() {
     const movies = this.state.movies;
     const selectedMovie = this.state.selectedMovie;
+    const user = this.state.user;
+
+    /* If there is no user, the LoginView is rendered. */
+    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)}></LoginView>;
 
     if (movies.length === 0) return <div className='main-view'></div>;
 
