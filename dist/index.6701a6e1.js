@@ -48988,15 +48988,25 @@ function RegisterView() {
                     })
                 ]
             }),
-            /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                onClick: ()=>{
-                    onLogOnLogInClick();
-                },
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/register-view/register-view.jsx",
                     lineNumber: 34
                 },
-                __self: this
+                __self: this,
+                children: [
+                    "Log-In",
+                    /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                        onClick: ()=>{
+                            onLogOnLogInClick();
+                        },
+                        __source: {
+                            fileName: "src/components/register-view/register-view.jsx",
+                            lineNumber: 36
+                        },
+                        __self: this
+                    })
+                ]
             })
         ]
     }));

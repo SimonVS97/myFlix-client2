@@ -31,7 +31,11 @@ export function RegisterView() {
         Submit
         <button type="submit"></button>
       </label>
-      <button onClick={() => { onLogOnLogInClick(); }}></button>
+      <label>
+        Log-In
+        <button onClick={() => { onLogOnLogInClick(); }}></button>
+      </label>
+
     </form>
   );
 }
