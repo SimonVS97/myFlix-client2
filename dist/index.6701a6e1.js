@@ -29719,9 +29719,7 @@ function LoginView(props) {
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("button", {
                 type: "submit",
-                onClick: ()=>{
-                    handleRegister();
-                },
+                onClick: handleRegister,
                 __source: {
                     fileName: "src/components/login-view/LoginView.jsx",
                     lineNumber: 32
