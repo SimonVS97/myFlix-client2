@@ -4,6 +4,7 @@ import axios from 'axios';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/LoginView';
+import { RegisterView } from '../register-view/register-view';
 import { json } from 'body-parser';
 
 export class MainView extends React.Component {
