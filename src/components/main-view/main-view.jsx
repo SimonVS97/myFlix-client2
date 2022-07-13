@@ -45,11 +45,18 @@ export class MainView extends React.Component {
     });
   }
 
-  // a function that will set toRegister on true
+  // a function that will set displayRegisterForm on true
   toRegister() {
     this.setState({
       displayRegisterForm: true
     });
+  }
+
+  // Function that will set displayRegisterForm to false
+  toLogIn() {
+    this.setState({
+      displayRegisterForm: false
+    })
   }
 
   render() {
@@ -59,7 +66,7 @@ export class MainView extends React.Component {
     const displayRegisterForm = this.state.displayRegisterForm;
 
     // if displayRegisterForm is true, the RegisterView is rendered
-    if (displayRegisterForm) return <RegisterView></RegisterView>
+    if (displayRegisterForm) return <RegisterView OnLogInClick={() => { this.toLogIn() }}></RegisterView>
 
     /* If there is no user, the LoginView is rendered. */
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} onRegisterClick={() => { this.toRegister() }}></LoginView>;

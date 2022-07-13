@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const onRegisterClick = this.props.onRegisterClick;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,7 +14,6 @@ export function LoginView(props) {
   };
 
   const handleRegister = (e) => {
-    console.log('hello');
     e.preventDefault();
     props.onRegisterClick();
   };
@@ -29,7 +29,7 @@ export function LoginView(props) {
         <input type="password" value={password} onChange={e => setPassword(e.target.value)}></input>
       </label>
       <button type="submit" onClick={handleSubmit}>Submit</button>
-      <button type="submit" onClick={handleRegister}>Register</button>
+      <button onClick={() => { onRegisterClick(); }}>Register</button>
     </form>
   );
 

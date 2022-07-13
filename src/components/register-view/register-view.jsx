@@ -5,6 +5,7 @@ export function RegisterView() {
   [password, setPassword] = useState('');
   [email, setEmail] = useState('');
   [birthday, setBirthDay] = useState('');
+  const OnLogInClick = this.props.OnLogInClick;
 
 
 
@@ -26,7 +27,11 @@ export function RegisterView() {
         Date of birth:
         <input type="date" value={birthday} onChange={e => setBirthDay(e.target.value)}></input>
       </label>
-      <button type="submit">Register</button>
+      <label>
+        Submit
+        <button type="submit"></button>
+      </label>
+      <button onClick={() => { onLogOnLogInClick(); }}></button>
     </form>
   );
 }
