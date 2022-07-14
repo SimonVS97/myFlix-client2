@@ -30026,7 +30026,7 @@ function RegisterView() {
     [password, setPassword] = _react.useState('');
     [email, setEmail] = _react.useState('');
     [birthday, setBirthDay] = _react.useState('');
-    //const OnLogInClick = props.OnLogInClick;
+    const OnLogInClick = props.OnLogInClick;
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
             fileName: "src/components/register-view/register-view.jsx",

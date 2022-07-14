@@ -6,7 +6,7 @@ export function RegisterView() {
   [password, setPassword] = useState('');
   [email, setEmail] = useState('');
   [birthday, setBirthDay] = useState('');
-  //const OnLogInClick = props.OnLogInClick;
+  const OnLogInClick = props.OnLogInClick;
 
 
 
