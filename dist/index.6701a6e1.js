@@ -29657,27 +29657,23 @@ function LoginView(props) {
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
-    const onRegisterClick = this.props.onRegisterClick;
+    const onRegisterClick = props.onRegisterClick;
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(username, password);
         /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
     };
-    const handleRegister = (e)=>{
-        e.preventDefault();
-        props.onRegisterClick();
-    };
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
             fileName: "src/components/login-view/LoginView.jsx",
-            lineNumber: 22
+            lineNumber: 17
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/login-view/LoginView.jsx",
-                    lineNumber: 23
+                    lineNumber: 18
                 },
                 __self: this,
                 children: [
@@ -29689,7 +29685,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/LoginView.jsx",
-                            lineNumber: 25
+                            lineNumber: 20
                         },
                         __self: this
                     })
@@ -29698,7 +29694,7 @@ function LoginView(props) {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/login-view/LoginView.jsx",
-                    lineNumber: 27
+                    lineNumber: 22
                 },
                 __self: this,
                 children: [
@@ -29710,7 +29706,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/LoginView.jsx",
-                            lineNumber: 29
+                            lineNumber: 24
                         },
                         __self: this
                     })
@@ -29721,7 +29717,7 @@ function LoginView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/login-view/LoginView.jsx",
-                    lineNumber: 31
+                    lineNumber: 26
                 },
                 __self: this,
                 children: "Submit"
@@ -29732,7 +29728,7 @@ function LoginView(props) {
                 },
                 __source: {
                     fileName: "src/components/login-view/LoginView.jsx",
-                    lineNumber: 32
+                    lineNumber: 27
                 },
                 __self: this,
                 children: "Register"
@@ -48878,7 +48874,7 @@ function RegisterView() {
     [password, setPassword] = _react.useState('');
     [email, setEmail] = _react.useState('');
     [birthday, setBirthDay] = _react.useState('');
-    const OnLogInClick = this.props.OnLogInClick;
+    //const OnLogInClick = props.OnLogInClick;
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
             fileName: "src/components/register-view/register-view.jsx",
@@ -48970,43 +48966,25 @@ function RegisterView() {
                     })
                 ]
             }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                type: "submit",
                 __source: {
                     fileName: "src/components/register-view/register-view.jsx",
                     lineNumber: 30
                 },
                 __self: this,
-                children: [
-                    "Submit",
-                    /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                        type: "submit",
-                        __source: {
-                            fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 32
-                        },
-                        __self: this
-                    })
-                ]
+                children: "Submit"
             }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                onClick: ()=>{
+                    onLogOnLogInClick();
+                },
                 __source: {
                     fileName: "src/components/register-view/register-view.jsx",
-                    lineNumber: 34
+                    lineNumber: 31
                 },
                 __self: this,
-                children: [
-                    "Log-In",
-                    /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                        onClick: ()=>{
-                            onLogOnLogInClick();
-                        },
-                        __source: {
-                            fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 36
-                        },
-                        __self: this
-                    })
-                ]
+                children: "Log-In"
             })
         ]
     }));

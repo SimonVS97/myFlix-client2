@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const onRegisterClick = this.props.onRegisterClick;
+  const onRegisterClick = props.onRegisterClick;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,11 +11,6 @@ export function LoginView(props) {
     /* Send a request to the server for authentication */
     /* then call props.onLoggedIn(username) */
     props.onLoggedIn(username);
-  };
-
-  const handleRegister = (e) => {
-    e.preventDefault();
-    props.onRegisterClick();
   };
 
   return (
