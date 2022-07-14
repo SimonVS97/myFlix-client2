@@ -66,10 +66,10 @@ export class MainView extends React.Component {
     const displayRegisterForm = this.state.displayRegisterForm;
 
     // if displayRegisterForm is true, the RegisterView is rendered
-    if (displayRegisterForm) return <RegisterView OnLogInClick={() => { this.toLogIn() }}></RegisterView>
+    if (displayRegisterForm) return <RegisterView OnLogInClick={() => { this.toLogIn() }} />
 
     /* If there is no user, the LoginView is rendered. */
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} onRegisterClick={() => { this.toRegister() }}></LoginView>;
+    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} onRegisterClick={() => { this.toRegister() }} />;
 
     if (movies.length === 0) return <div className='main-view'></div>;
 
