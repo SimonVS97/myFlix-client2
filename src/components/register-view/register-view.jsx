@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export function RegisterView() {
   [username, setUsername] = useState('');
@@ -28,7 +29,12 @@ export function RegisterView() {
         <input type="date" value={birthday} onChange={e => setBirthDay(e.target.value)}></input>
       </label>
       <button type="submit">Submit</button>
-      <button onClick={() => { onLogOnLogInClick(); }}>Log-In</button>
+      <button onClick={() => { OnLogInClick(); }}>Log-In</button>
     </form>
   );
 }
+
+
+RegisterView.PropTypes = {
+  OnLogInClick: PropTypes.func.isRequired
+}; 
