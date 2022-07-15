@@ -30021,7 +30021,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-function RegisterView() {
+function RegisterView(props) {
     [username, setUsername] = _react.useState('');
     [password, setPassword] = _react.useState('');
     [email, setEmail] = _react.useState('');

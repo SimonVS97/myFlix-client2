@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-export function RegisterView() {
+export function RegisterView(props) {
   [username, setUsername] = useState('');
   [password, setPassword] = useState('');
   [email, setEmail] = useState('');
