@@ -25352,6 +25352,7 @@ class MainView extends _reactDefault.default.Component {
             __self: this
         }));
         if (selectedMovie) return(/*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+            className: "justify-contennt-md-center main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 80
@@ -25359,7 +25360,6 @@ class MainView extends _reactDefault.default.Component {
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                 md: 8,
-                className: "justify-contennt-md-center",
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
                     lineNumber: 81
@@ -25378,25 +25378,33 @@ class MainView extends _reactDefault.default.Component {
                 })
             })
         }));
-        else return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "main-view",
+        else return(/*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+            className: "justify-content-md-center main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 88
             },
             __self: this,
             children: movies.map((movie)=>{
-                return(/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                    movieData: movie,
-                    onMovieClick: (movie1)=>{
-                        this.setSelectedMovie(movie1);
-                    },
+                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                    md: 3,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
                         lineNumber: 90
                     },
-                    __self: this
-                }, movie._id));
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                        movieData: movie,
+                        onMovieClick: (movie1)=>{
+                            this.setSelectedMovie(movie1);
+                        },
+                        __source: {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 91
+                        },
+                        __self: this
+                    }, movie._id)
+                });
             })
         }));
     }
