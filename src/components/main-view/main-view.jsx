@@ -7,6 +7,9 @@ import { LoginView } from '../login-view/LoginView';
 import { RegisterView } from '../register-view/register-view';
 import { json } from 'body-parser';
 
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 export class MainView extends React.Component {
 
   constructor() {
@@ -73,7 +76,13 @@ export class MainView extends React.Component {
 
     if (movies.length === 0) return <div className='main-view'></div>;
 
-    if (selectedMovie) return <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+    if (selectedMovie) return (
+      <Row>
+        <Col md={8} className="justify-contennt-md-center">
+          <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+        </Col>
+      </Row>
+    )
     else {
       return (
         <div className="main-view">
