@@ -22,11 +22,14 @@ export function RegisterView(props) {
     <Container>
       <Row>
         <Col>
-          <Form>
-            <CardGroup>
-              <Card>
-                <Card.Body>
+          <CardGroup>
+            <Card>
+              <Card.Body>
+                <Form>
+
                   <Card.Title>Please Register</Card.Title>
+
+
 
                   <Form.Group>
                     <Form.Label> Username:</Form.Label >
@@ -40,50 +43,49 @@ export function RegisterView(props) {
                   </Form.Group>
 
                   <Form.Group>
-                    <Form.label>Password:</Form.label>
+                    <Form.Label>Password:</Form.Label>
                     <Form.Control
                       type="password"
                       value={password}
                       onChange={e => setPassword(e.target.value)}
                       required
-                      placeholer="Enter a password">
+                      placeholder="Enter a password">
                     </Form.Control>
                   </Form.Group>
 
                   <Form.Group>
-                    <Form.label>E-Mail:</Form.label>
+                    <Form.Label>E-Mail:</Form.Label>
                     <Form.Control
                       type="email"
                       value={email}
                       onChange={e => setEmail(e.target.value)}
                       required
-                      placeholer="Enter an e-mail">
+                      placeholder="Enter an e-mail">
                     </Form.Control>
                   </Form.Group>
 
                   <Form.Group>
-                    <Form.label>Date of birth:</Form.label>
+                    <Form.Label>Date of birth:</Form.Label>
                     <Form.Control
                       type="date"
                       value={birthday}
                       onChange={e => setBirthDay(e.target.value)}
                       required
-                      placeholer="Enter your date of birth">
+                    >
                     </Form.Control>
                   </Form.Group>
+                  <br></br>
 
                   <Button type="submit" variant="primary">Submit</Button>
                   <Button variant="primary" onClick={() => { OnLogInClick(); }}>Log-In</Button>
-                </Card.Body>
-              </Card>
-            </CardGroup>
-          </Form>
-
+                </Form>
+              </Card.Body>
+            </Card>
+          </CardGroup>
         </Col>
       </Row>
-
-    </Container>
-  );
+    </Container >
+  )
 }
 
 

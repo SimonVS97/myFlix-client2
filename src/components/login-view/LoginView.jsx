@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -17,18 +22,33 @@ export function LoginView(props) {
   };
 
   return (
-    <Form>
-      <Form.Group controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" onChange={e => setUsername(e.target.value)}></Form.Control>
-      </Form.Group>
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" onChange={e => setPassword(e.target.value)}></Form.Control>
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
-      <Button varaint="primary" onClick={() => { onRegisterClick(); }}>Register</Button>
-    </Form>
+    <Container>
+      <Row>
+        <Col>
+          <CardGroup>
+            <Card>
+              <Card.Body>
+                <Form>
+                  <Card.Title>Please Log-In</Card.Title>
+                  <Form.Group controlId="formUsername">
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control type="text" onChange={e => setUsername(e.target.value)}></Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="formPassword">
+                    <Form.Label>Password:</Form.Label>
+                    <Form.Control type="password" onChange={e => setPassword(e.target.value)}></Form.Control>
+                  </Form.Group>
+                  <br></br>
+                  <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+                  <Button varaint="primary" onClick={() => { onRegisterClick(); }}>Register</Button>
+                </Form>
+              </Card.Body>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
+    </Container>
+
   );
 
 }

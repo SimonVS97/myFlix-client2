@@ -42,11 +42,9 @@ export class MainView extends React.Component {
 
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
   onLoggedIn(NewUser) {
-    console.log("hello" + NewUser);
     this.setState({
       user: NewUser
     });
-    console.log(this.state.user);
   }
 
   // a function that will set displayRegisterForm on true
@@ -78,8 +76,8 @@ export class MainView extends React.Component {
     if (movies.length === 0) return <div className='main-view'></div>;
 
     if (selectedMovie) return (
-      <Row className="justify-contennt-md-center main-view">
-        <Col md={8} >
+      <Row className="justify-content-md-center main-view">
+        <Col md={4} >
           <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
         </Col>
       </Row>
@@ -87,8 +85,6 @@ export class MainView extends React.Component {
     else {
       return (
         <Row className="justify-content-md-center main-view">
-          <div>hello</div>
-          <div>{user}</div>
           {movies.map((movie) => (
             <Col md={8} >
               <MovieCard key={movie._id} movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie); }} />

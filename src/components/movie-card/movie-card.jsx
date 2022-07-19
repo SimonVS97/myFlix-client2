@@ -22,10 +22,10 @@ export class MovieCard extends React.Component {
   }
 }
 
-/*MovieCard.PropTypes = {
+MovieCard.PropTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired
-}; */
+}; 
