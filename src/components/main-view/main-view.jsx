@@ -41,10 +41,12 @@ export class MainView extends React.Component {
   }
 
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
-  onLoggedIn(user) {
+  onLoggedIn(NewUser) {
+    console.log("hello" + NewUser);
     this.setState({
-      user
+      user: NewUser
     });
+    console.log(this.state.user);
   }
 
   // a function that will set displayRegisterForm on true
