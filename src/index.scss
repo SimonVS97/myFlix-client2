@@ -1,5 +1,10 @@
-$color: steelblue;
+$color1: #E5E9EC;
+
 
 .my-flix {
-  color: $color;
+  color: $color1;
+}
+
+.app-container {
+  background-color: $color1;
 }

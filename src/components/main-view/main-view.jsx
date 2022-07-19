@@ -9,6 +9,9 @@ import { RegisterView } from '../register-view/register-view.jsx';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import './main-view.scss';
+
+
 export class MainView extends React.Component {
 
   constructor() {
@@ -86,7 +89,7 @@ export class MainView extends React.Component {
       return (
         <Row className="justify-content-md-center main-view">
           {movies.map((movie) => (
-            <Col md={8} >
+            <Col md={4} >
               <MovieCard key={movie._id} movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie); }} />
             </Col>
           ))
