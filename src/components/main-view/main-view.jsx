@@ -4,7 +4,7 @@ import axios from 'axios';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/LoginView';
-import { RegisterView } from '../register-view/register-view';
+import { RegisterView } from '../register-view/register-view.jsx';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -87,10 +87,10 @@ export class MainView extends React.Component {
     else {
       return (
         <Row className="justify-content-md-center main-view">
+          <div>hello</div>
+          <div>{user}</div>
           {movies.map((movie) => {
-            <Col md={3} >
-              <MovieCard key={movie._id} movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie); }} />
-            </Col>
+            <MovieCard key={movie._id} movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie); }} />
           })}
         </Row>
       );
