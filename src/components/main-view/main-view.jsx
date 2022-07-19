@@ -89,9 +89,12 @@ export class MainView extends React.Component {
         <Row className="justify-content-md-center main-view">
           <div>hello</div>
           <div>{user}</div>
-          {movies.map((movie) => {
-            <MovieCard key={movie._id} movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie); }} />
-          })}
+          {movies.map((movie) => (
+            <Col md={8} >
+              <MovieCard key={movie._id} movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie); }} />
+            </Col>
+          ))
+          }
         </Row>
       );
     }
