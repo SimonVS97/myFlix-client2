@@ -19,8 +19,19 @@ export function LoginView(props) {
     e.preventDefault();
     console.log(username, password);
     /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+    axios.post('https://movie-app-svs.herokuapp.com/login', {
+      Username: username,
+      Password, password
+    })
+      .then(response => {
+        // response object, data is the parsed response body
+        /* then call props.onLoggedIn(data) */
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch(e => {
+        console.log('no such user')
+      });
   };
 
   return (

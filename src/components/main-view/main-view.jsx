@@ -88,7 +88,7 @@ export class MainView extends React.Component {
     else {
       return (
         <Row className="justify-content-md-center main-view">
-          {movies.map((movie) => (
+          {movies.map((movie) => ( //When returning jsx, one needs () not {}
             <Col md={4} >
               <MovieCard key={movie._id} movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie); }} />
             </Col>
