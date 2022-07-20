@@ -41833,8 +41833,7 @@ function LoginView(props) {
         console.log(username, password);
         /* Send a request to the server for authentication */ _axiosDefault.default.post('https://movie-app-svs.herokuapp.com/login', {
             Username: username,
-            Password,
-            password
+            Password: password
         }).then((response)=>{
             // response object, data is the parsed response body
             /* then call props.onLoggedIn(data) */ const data = response.data;

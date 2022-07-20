@@ -21,7 +21,7 @@ export function LoginView(props) {
     /* Send a request to the server for authentication */
     axios.post('https://movie-app-svs.herokuapp.com/login', {
       Username: username,
-      Password, password
+      Password: password
     })
       .then(response => {
         // response object, data is the parsed response body
