@@ -15,7 +15,27 @@ export function RegisterView(props) {
   [birthday, setBirthDay] = useState('');
   const OnLogInClick = props.OnLogInClick;
 
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(username, password, email, birthday);
+    /* Send a request to the server for authentication */
+    axios.post('https://movie-app-svs.herokuapp.com/users', {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    })
+      .then(response => {
+        // response object, data is the parsed response body
+        const data = response.data;
+        console.log(data);
+        // the second argument '_self' is necessary so that the page will open in the current tab
+        // window.open('/', '_self');
+      })
+      .catch(e => {
+        console.log('error registering user')
+      });
+  };
 
 
   return (
@@ -26,11 +46,7 @@ export function RegisterView(props) {
             <Card>
               <Card.Body>
                 <Form>
-
                   <Card.Title>Please Register</Card.Title>
-
-
-
                   <Form.Group>
                     <Form.Label> Username:</Form.Label >
                     <Form.Control
@@ -76,7 +92,7 @@ export function RegisterView(props) {
                   </Form.Group>
                   <br></br>
 
-                  <Button type="submit" variant="primary">Submit</Button>
+                  <Button type="submit" variant="primary" onClick={() => handleSubmit()}>Submit</Button>
                   <Button variant="primary" onClick={() => { OnLogInClick(); }}>Log-In</Button>
                 </Form>
               </Card.Body>
