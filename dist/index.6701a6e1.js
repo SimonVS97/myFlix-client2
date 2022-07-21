@@ -25345,7 +25345,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 94
+                lineNumber: 95
             },
             __self: this
         }));
@@ -25357,7 +25357,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 97
+                lineNumber: 98
             },
             __self: this
         }));
@@ -25365,7 +25365,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 99
+                lineNumber: 100
             },
             __self: this
         }));
@@ -25373,14 +25373,14 @@ class MainView extends _reactDefault.default.Component {
             className: "justify-content-md-center main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 102
+                lineNumber: 103
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                 md: 4,
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 103
+                    lineNumber: 104
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -25390,7 +25390,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 104
+                        lineNumber: 105
                     },
                     __self: this
                 })
@@ -25400,7 +25400,7 @@ class MainView extends _reactDefault.default.Component {
             className: "justify-content-md-center main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 110
+                lineNumber: 111
             },
             __self: this,
             children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
@@ -25408,7 +25408,7 @@ class MainView extends _reactDefault.default.Component {
                     md: 4,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 112
+                        lineNumber: 113
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25418,7 +25418,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 113
+                            lineNumber: 114
                         },
                         __self: this
                     }, movie._id)
