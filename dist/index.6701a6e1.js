@@ -25317,6 +25317,14 @@ class MainView extends _reactDefault.default.Component {
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
+    // Logging out function
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
+    }
     getMovies(token) {
         _axiosDefault.default.get('https://movie-app-svs.herokuapp.com/movies', {
             header: {
@@ -25348,6 +25356,8 @@ class MainView extends _reactDefault.default.Component {
         const selectedMovie = this.state.selectedMovie;
         const user = this.state.user;
         const displayRegisterForm = this.state.displayRegisterForm;
+        // Log-out button needs to be placed right
+        //<button onClick={() => { this.onLoggedOut() }}>Logout</button>
         // if displayRegisterForm is true, the RegisterView is rendered
         if (displayRegisterForm) return(/*#__PURE__*/ _jsxRuntime.jsx(_registerViewJsx.RegisterView, {
             OnLogInClick: ()=>{
@@ -25355,7 +25365,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 105
+                lineNumber: 117
             },
             __self: this
         }));
@@ -25367,7 +25377,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 108
+                lineNumber: 120
             },
             __self: this
         }));
@@ -25375,7 +25385,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 110
+                lineNumber: 122
             },
             __self: this
         }));
@@ -25383,14 +25393,14 @@ class MainView extends _reactDefault.default.Component {
             className: "justify-content-md-center main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 113
+                lineNumber: 125
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                 md: 4,
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 114
+                    lineNumber: 126
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -25400,7 +25410,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 115
+                        lineNumber: 127
                     },
                     __self: this
                 })
@@ -25410,7 +25420,7 @@ class MainView extends _reactDefault.default.Component {
             className: "justify-content-md-center main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 121
+                lineNumber: 133
             },
             __self: this,
             children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
@@ -25418,7 +25428,7 @@ class MainView extends _reactDefault.default.Component {
                     md: 4,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 123
+                        lineNumber: 135
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25428,7 +25438,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 124
+                            lineNumber: 136
                         },
                         __self: this
                     }, movie._id)

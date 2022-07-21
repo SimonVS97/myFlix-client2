@@ -66,6 +66,15 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  // Logging out function
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
+  }
+
   getMovies(token) {
     axios.get('https://movie-app-svs.herokuapp.com/movies', {
       header: { Authorization: 'Bearer ${token}' }
@@ -100,6 +109,9 @@ export class MainView extends React.Component {
     const selectedMovie = this.state.selectedMovie;
     const user = this.state.user;
     const displayRegisterForm = this.state.displayRegisterForm;
+
+    // Log-out button needs to be placed right
+    //<button onClick={() => { this.onLoggedOut() }}>Logout</button>
 
     // if displayRegisterForm is true, the RegisterView is rendered
     if (displayRegisterForm) return <RegisterView OnLogInClick={() => { this.toLogIn() }} />
