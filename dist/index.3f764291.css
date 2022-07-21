@@ -7,7 +7,9 @@
   height: 100%;
 }
 
-
+.movieCardContainer {
+  margin-bottom: 15px;
+}
 .my-flix {
   color: #E5E9EC;
 }
