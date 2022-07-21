@@ -28779,21 +28779,19 @@ class MovieCard extends _reactDefault.default.Component {
         const movie = this.props.movieData;
         const onMovieClick = this.props.onMovieClick;
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.CardGroup, {
-            className: "movieCard",
+            className: "cardGroup",
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
                 lineNumber: 17
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default, {
-                className: "movieCard",
                 __source: {
                     fileName: "src/components/movie-card/movie-card.jsx",
                     lineNumber: 18
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
-                    className: "movieCard",
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 19
@@ -28811,6 +28809,9 @@ class MovieCard extends _reactDefault.default.Component {
                         /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
                             variant: "top",
                             src: movie.ImagePath,
+                            style: {
+                                height: '70%'
+                            },
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
                                 lineNumber: 21

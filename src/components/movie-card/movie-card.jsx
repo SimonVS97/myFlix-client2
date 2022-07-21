@@ -14,11 +14,11 @@ export class MovieCard extends React.Component {
 
 
     return (
-      <CardGroup className="movieCard">
-        <Card className="movieCard">
-          <Card.Body className="movieCard">
+      <CardGroup className='cardGroup' >
+        <Card >
+          <Card.Body >
             <Card.Title>{movie.Title}</Card.Title>
-            <Card.Img variant="top" src={movie.ImagePath} />
+            <Card.Img variant="top" src={movie.ImagePath} style={{ height: '70%' }} />
             <Card.Text>{movie.Description}</Card.Text>
             <Button onClick={() => onMovieClick(movie)} variant="primary">Open</Button>
           </Card.Body>
