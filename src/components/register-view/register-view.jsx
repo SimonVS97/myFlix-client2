@@ -15,26 +15,61 @@ export function RegisterView(props) {
   [birthday, setBirthDay] = useState('');
   const OnLogInClick = props.OnLogInClick;
 
+  const [usernameErr, setUsernameErr] = useState('');
+  const [passwordErr, setPasswordErr] = useState('');
+  const [emailErr, setEmailErr] = useState('');
+
+  // function to validate user input
+  const validate = () => {
+    let isRegis = true;
+    if (!username) {
+      setUsername('Username Required');
+      isRegis = false;
+    } else if (username.length < 2) {
+      setUsernameErr('Username must be 2 characters long');
+      isRegis = false;
+    }
+    if (!password) {
+      setPasswordErr('Password Required');
+      isRegis = false;
+    } else if (password.length < 6) {
+      setPassword('Password must be 6 characters long');
+      isRegis = false;
+    }
+    if (!email) {
+      setEmailErr('Email required');
+      isRegis = false;
+    } else if (email.indexOf('@') === -1) {
+      setEmailErr('The input is not an email address');
+      isRegis = false;
+    }
+    return isRegis;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password, email, birthday);
-    /* Send a request to the server for authentication */
-    axios.post('https://movie-app-svs.herokuapp.com/users', {
-      Username: username,
-      Password: password,
-      Email: email,
-      Birthday: birthday
-    })
-      .then(response => {
-        // response object, data is the parsed response body
-        const data = response.data;
-        console.log(data);
-        // the second argument '_self' is necessary so that the page will open in the current tab
-        // window.open('/', '_self');
+    // registration info validation
+    const isRegis = validate();
+    if (isRegis) {
+      /* Send a request to the server for authentication */
+      axios.post('https://movie-app-svs.herokuapp.com/users', {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday
       })
-      .catch(e => {
-        console.log('error registering user')
-      });
+        .then(response => {
+          // response object, data is the parsed response body
+          const data = response.data;
+          console.log(data);
+          // the second argument '_self' is necessary so that the page will open in the current tab
+          // window.open('/', '_self');
+        })
+        .catch(e => {
+          console.log('error registering user')
+        });
+    }
   };
 
 
