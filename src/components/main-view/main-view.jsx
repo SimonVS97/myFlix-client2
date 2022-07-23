@@ -156,6 +156,12 @@ export class MainView extends React.Component {
             </Col>
           }} />
 
+          <Route path="/directors/:DirectorName" render={({ match }) => {
+            return <Col md={8}>
+              <Directorview director={movies.find(m => { m.Director.Name === match.params.DirectorName })}></Directorview>
+            </Col>
+          }} />
+
         </Row>
       </Router>
     );

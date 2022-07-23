@@ -25455,6 +25455,24 @@ class MainView extends _reactDefault.default.Component {
                                 lineNumber: 152
                             },
                             __self: this
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                            path: "/directors/:DirectorName",
+                            render: ({ match  })=>{
+                                return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                    md: 8,
+                                    children: /*#__PURE__*/ _jsxRuntime.jsx(Directorview, {
+                                        director: movies.find((m)=>{
+                                            m.Director.Name, match.params.DirectorName;
+                                        })
+                                    })
+                                }));
+                            },
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 159
+                            },
+                            __self: this
                         })
                     ]
                 })
