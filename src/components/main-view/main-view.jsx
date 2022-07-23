@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
@@ -127,6 +127,7 @@ export class MainView extends React.Component {
       <Router>
         <Menubar user={user}></Menubar>
         <Row className="main-view justify-content-md-center">
+
           <Route exact path="/" render={() => {
             /* If there is no user, the LoginView is rendered. */
             if (!user) {
@@ -141,10 +142,13 @@ export class MainView extends React.Component {
               </Col>
             ))
           }} />
+
           <Route path="/register" render={() => {
             // register view
+            if (user) return <Redirect to="/" />
             return <RegisterView OnLogInClick={() => { this.toLogIn() }}></RegisterView>
           }} />
+
           <Route path="/movies/:movieId" render={({ match, history }) => {
             // movie view
             return <Col md={8}>

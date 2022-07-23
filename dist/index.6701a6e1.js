@@ -25414,7 +25414,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 130
+                                lineNumber: 131
                             },
                             __self: this
                         }),
@@ -25422,6 +25422,9 @@ class MainView extends _reactDefault.default.Component {
                             path: "/register",
                             render: ()=>{
                                 // register view
+                                if (user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Redirect, {
+                                    to: "/"
+                                }));
                                 return(/*#__PURE__*/ _jsxRuntime.jsx(_registerViewJsx.RegisterView, {
                                     OnLogInClick: ()=>{
                                         this.toLogIn();
@@ -25430,7 +25433,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 144
+                                lineNumber: 146
                             },
                             __self: this
                         }),
@@ -25449,7 +25452,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 148
+                                lineNumber: 152
                             },
                             __self: this
                         })
