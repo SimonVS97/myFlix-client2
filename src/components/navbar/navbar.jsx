@@ -32,15 +32,22 @@ export function Menubar(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             {isAuth() && (
-              <Nav.Link href={'/users/${user}'}>{user}</Nav.Link>
+              <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>
             )}
-            <Nav.Link>Home</Nav.Link>
-            <Nav.Link>Profile-View</Nav.Link>
-            <Nav.Link>Sign Up</Nav.Link>
-            <Nav.Link>Sign Out</Nav.Link>
+            {isAuth() && (
+              <Button variant="link" onClick={() => {
+                this.onLoggedOut()
+              }}>Logout</Button>
+            )}
+            {isAuth() && (
+              <Nav.Link href="/">Sign-in</Nav.Link>
+            )}
+            {!isAuth() && (
+              <Nav.Link href="/register">Sign-up</Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
+  );
 } 
