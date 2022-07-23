@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
@@ -122,25 +122,21 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-        <Routes>
-
-
-          <Row className="main-view justify-content-md-center">
-            <Route exact path="/" render={() => {
-              return movies.map(m => (
-                <Col md={4} key={m._id}>
-                  <MovieCard movie={m} />
-                </Col>
-              ))
-            }} />
-            <Route path="/movies/:movieId" render={({ match }) => {
-              return <Col md={8}>
-                <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+        <Row className="main-view justify-content-md-center">
+          <Route exact path="/" render={() => {
+            return movies.map(m => (
+              <Col md={4} key={m._id}>
+                <MovieCard movie={m} />
               </Col>
-            }} />
+            ))
+          }} />
+          <Route path="/movies/:movieId" render={({ match }) => {
+            return <Col md={8}>
+              <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+            </Col>
+          }} />
 
-          </Row>
-        </Routes>
+        </Row>
       </Router>
     );
 

@@ -9,7 +9,7 @@ import './movie-card.scss';
 
 export class MovieCard extends React.Component {
   render() {
-    const movie = this.props.movieData;
+    const movie = this.props.movie;
     const onMovieClick = this.props.onMovieClick;
 
 
