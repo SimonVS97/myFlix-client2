@@ -25428,10 +25428,8 @@ class MainView extends _reactDefault.default.Component {
                             return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                 md: 8,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
-                                    movie: movies.find((m)=>{
-                                        console.log(m);
-                                        m._id, match.params.movieId;
-                                    })
+                                    movie: movies.find((m)=>m._id === match.params.movieId
+                                    )
                                 })
                             }));
                         },
@@ -31869,7 +31867,7 @@ class MovieCard extends _reactDefault.default.Component {
                             children: movie.Description
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                            to: '/movies/${movie._id}',
+                            to: `/movies/${movie._id}`,
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
                                 lineNumber: 25

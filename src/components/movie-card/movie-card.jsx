@@ -22,7 +22,7 @@ export class MovieCard extends React.Component {
             <Card.Title>{movie.Title}</Card.Title>
             <Card.Img variant="top" src={movie.ImagePath} style={{ height: '70%' }} />
             <Card.Text>{movie.Description}</Card.Text>
-            <Link to={'/movies/${movie._id}'}>
+            <Link to={`/movies/${movie._id}`}>
               <Button variant='link'>Open</Button>
             </Link>
           </Card.Body>
