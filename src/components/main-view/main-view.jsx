@@ -7,6 +7,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/LoginView';
 import { RegisterView } from '../register-view/register-view.jsx';
+import { Menubar } from '../navbar/navbar.jsx'
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -122,6 +123,7 @@ export class MainView extends React.Component {
 
     return (
       <Router>
+        <Menubar user={user}></Menubar>
         <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
             return movies.map(m => (
