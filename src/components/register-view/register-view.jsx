@@ -64,7 +64,7 @@ export function RegisterView(props) {
           const data = response.data;
           console.log(data);
           // the second argument '_self' is necessary so that the page will open in the current tab
-          // window.open('/', '_self');
+          window.open('/', '_self');
         })
         .catch(e => {
           console.log('error registering user')

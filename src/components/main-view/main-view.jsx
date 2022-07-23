@@ -113,26 +113,40 @@ export class MainView extends React.Component {
     // Log-out button needs to be placed right
     //<button onClick={() => { this.onLoggedOut() }}>Logout</button>
 
-    // if displayRegisterForm is true, the RegisterView is rendered
-    if (displayRegisterForm) return <RegisterView OnLogInClick={() => { this.toLogIn() }} />
+    /* if displayRegisterForm is true, the RegisterView is rendered
+    if (displayRegisterForm) return <RegisterView OnLogInClick={() => { this.toLogIn() }} />*/
 
-    /* If there is no user, the LoginView is rendered. */
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} onRegisterClick={() => { this.toRegister() }} />;
+    /* If there is no user, the LoginView is rendered.
+    if (!user) {
+      return <LoginView onLoggedIn={user => this.onLoggedIn(user)} onRegisterClick={() => { this.toRegister() }} />;
+    } */
 
-    if (movies.length === 0) return <div className='main-view'></div>;
+    //if (movies.length === 0) return <div className='main-view'></div>;
 
     return (
       <Router>
         <Menubar user={user}></Menubar>
         <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
+            /* If there is no user, the LoginView is rendered. */
+            if (!user) {
+              return <LoginView onLoggedIn={user => this.onLoggedIn(user)} onRegisterClick={() => { this.toRegister() }} />;
+            }
+            // Before the movies have been loaded
+            if (movies.length === 0) return <div className='main-view'></div>;
+            // mapping the movie cards
             return movies.map(m => (
               <Col md={4} key={m._id}>
                 <MovieCard movie={m} />
               </Col>
             ))
           }} />
+          <Route path="/register" render={() => {
+            // register view
+            return <RegisterView OnLogInClick={() => { this.toLogIn() }}></RegisterView>
+          }} />
           <Route path="/movies/:movieId" render={({ match, history }) => {
+            // movie view
             return <Col md={8}>
               <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
             </Col>

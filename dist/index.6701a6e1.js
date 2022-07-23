@@ -25360,41 +25360,15 @@ class MainView extends _reactDefault.default.Component {
         const displayRegisterForm = this.state.displayRegisterForm;
         // Log-out button needs to be placed right
         //<button onClick={() => { this.onLoggedOut() }}>Logout</button>
-        // if displayRegisterForm is true, the RegisterView is rendered
-        if (displayRegisterForm) return(/*#__PURE__*/ _jsxRuntime.jsx(_registerViewJsx.RegisterView, {
-            OnLogInClick: ()=>{
-                this.toLogIn();
-            },
-            __source: {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 117
-            },
-            __self: this
-        }));
-        /* If there is no user, the LoginView is rendered. */ if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
-            onLoggedIn: (user1)=>this.onLoggedIn(user1)
-            ,
-            onRegisterClick: ()=>{
-                this.toRegister();
-            },
-            __source: {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 120
-            },
-            __self: this
-        }));
-        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "main-view",
-            __source: {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 122
-            },
-            __self: this
-        }));
+        /* if displayRegisterForm is true, the RegisterView is rendered
+    if (displayRegisterForm) return <RegisterView OnLogInClick={() => { this.toLogIn() }} />*/ /* If there is no user, the LoginView is rendered.
+    if (!user) {
+      return <LoginView onLoggedIn={user => this.onLoggedIn(user)} onRegisterClick={() => { this.toRegister() }} />;
+    } */ //if (movies.length === 0) return <div className='main-view'></div>;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 125
+                lineNumber: 127
             },
             __self: this,
             children: [
@@ -25402,7 +25376,7 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 126
+                        lineNumber: 128
                     },
                     __self: this
                 }),
@@ -25410,7 +25384,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 127
+                        lineNumber: 129
                     },
                     __self: this,
                     children: [
@@ -25418,6 +25392,18 @@ class MainView extends _reactDefault.default.Component {
                             exact: true,
                             path: "/",
                             render: ()=>{
+                                /* If there is no user, the LoginView is rendered. */ if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                                    ,
+                                    onRegisterClick: ()=>{
+                                        this.toRegister();
+                                    }
+                                }));
+                                // Before the movies have been loaded
+                                if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                    className: "main-view"
+                                }));
+                                // mapping the movie cards
                                 return movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                         md: 4,
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25428,13 +25414,30 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 128
+                                lineNumber: 130
+                            },
+                            __self: this
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                            path: "/register",
+                            render: ()=>{
+                                // register view
+                                return(/*#__PURE__*/ _jsxRuntime.jsx(_registerViewJsx.RegisterView, {
+                                    OnLogInClick: ()=>{
+                                        this.toLogIn();
+                                    }
+                                }));
+                            },
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 144
                             },
                             __self: this
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                             path: "/movies/:movieId",
                             render: ({ match , history  })=>{
+                                // movie view
                                 return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                     md: 8,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -25446,7 +25449,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 135
+                                lineNumber: 148
                             },
                             __self: this
                         })
@@ -44527,8 +44530,8 @@ function RegisterView(props) {
             // response object, data is the parsed response body
             const data = response.data;
             console.log(data);
-        // the second argument '_self' is necessary so that the page will open in the current tab
-        // window.open('/', '_self');
+            // the second argument '_self' is necessary so that the page will open in the current tab
+            window.open('/', '_self');
         }).catch((e1)=>{
             console.log('error registering user');
         });
