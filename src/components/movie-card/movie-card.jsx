@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { CardGroup } from 'react-bootstrap';
 
+import { Link } from 'react-router-dom';
+
 import './movie-card.scss';
 
 
@@ -20,7 +22,9 @@ export class MovieCard extends React.Component {
             <Card.Title>{movie.Title}</Card.Title>
             <Card.Img variant="top" src={movie.ImagePath} style={{ height: '70%' }} />
             <Card.Text>{movie.Description}</Card.Text>
-            <Button onClick={() => onMovieClick(movie)} variant="primary">Open</Button>
+            <Link to={'/movies/${movie._id}'}>
+              <Button variant='link'>Open</Button>
+            </Link>
           </Card.Body>
         </Card>
       </CardGroup>
@@ -35,4 +39,6 @@ MovieCard.PropTypes = {
     Description: PropTypes.string.isRequired
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired
-}; 
+};
+
+            //<Button onClick={() => onMovieClick(movie)} variant="primary">Open</Button>
