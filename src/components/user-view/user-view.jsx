@@ -75,11 +75,23 @@ export class ProfileView extends React.Component {
       console.error(error);
     })
   }
-
+  // Get profile info from user after mounting component
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     let user = this.props.user;
     this.getUserInfo(user, accessToken);
+  }
+
+  // method that sends delete request
+  deleteUser(user, token) {
+    axios.delete(`https://movie-app-svs.herokuapp.com/users/${user}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    ).then(response => {
+      console.log(response.data);
+      window.open('/', '_self');
+    }).catch(error => {
+      console.error(error);
+    })
   }
 
   render() {
@@ -112,27 +124,18 @@ export class ProfileView extends React.Component {
         </Row>
         <Row>
           <Col>
-            <Card>
-              <Card.Body>
-                <Card.Title>Update your profile information</Card.Title>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
             <CardGroup>
               <Card>
                 <Card.Body>
                   <Form>
-                    <Card.Title>Update your information</Card.Title>
+                    <Card.Title>Update your profile information</Card.Title>
                     <Form.Group controlId="formUsername">
                       <Form.Label>Username:</Form.Label>
-                      <Form.Control type="text" onChange={e => setUsername(e.target.value)}></Form.Control>
+                      <Form.Control type="text" onChange={e => this.setUsername(e.target.value)}></Form.Control>
                     </Form.Group>
                     <Form.Group controlId="formPassword">
                       <Form.Label>Password:</Form.Label>
-                      <Form.Control type="password" onChange={e => setPassword(e.target.value)}></Form.Control>
+                      <Form.Control type="password" onChange={e => this.setPassword(e.target.value)}></Form.Control>
                     </Form.Group>
                     <Form.Group controlId="formEmail">
                       <Form.Label>Email:</Form.Label>
@@ -143,7 +146,9 @@ export class ProfileView extends React.Component {
                       <Form.Control type="date" onChange={e => this.setBirthday(e.target.value)}></Form.Control>
                     </Form.Group>
                     <br></br>
-                    <Button variant="primary" type="submit" onClick={this.changeUserInfo(user, token)}>Submit</Button>
+                    <Button variant="primary" type="submit" onClick={() => this.changeUserInfo(user, token)}>Submit</Button>
+
+                    <Button type="submit" variant="primary" onClick={() => this.deleteUser(user, token)}>Deregister</Button>
                   </Form>
                 </Card.Body>
               </Card>
