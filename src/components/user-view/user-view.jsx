@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { MovieCard } from '../movie-card/movie-card';
 
 export class ProfileView extends React.Component {
 
@@ -58,6 +59,15 @@ export class ProfileView extends React.Component {
       })
     })
   }
+
+  // Filter the favorite movies of the user 
+  getUserFavMovies() {
+    const favMovies = this.state.profile.FavoriteMovies;
+    const movies = this.props.movies;
+    let arr = [];
+    console.log(favMovies);
+  }
+
   // put request to server to update user information
   changeUserInfo(user, token) {
     axios.put(`https://movie-app-svs.herokuapp.com/users/${user}`,
@@ -96,8 +106,10 @@ export class ProfileView extends React.Component {
 
   render() {
     const user = this.props.user;
+    const movies = this.props.movies;
     const token = localStorage.getItem('token');
     const profile = this.state.profile;
+
 
 
     console.log(profile);
@@ -148,16 +160,25 @@ export class ProfileView extends React.Component {
                     <br></br>
                     <Button variant="primary" type="submit" onClick={() => this.changeUserInfo(user, token)}>Submit</Button>
                     <Button type="submit" variant="primary" onClick={() => this.deleteUser(user, token)}>Deregister</Button>
+                    <Button onClick={() => this.getUserFavMovies()}>FavMovies</Button>
                   </Form>
                 </Card.Body>
               </Card>
             </CardGroup>
           </Col>
         </Row>
+        <Row>
+          {profile ? (
+            profile.FavoriteMovies.map((movieId, i) => (
+              <Col md={6} lg={4}>
+                <MovieCard movie={movies.find(m => m._id == movieId)} />
+              </Col>
+            ))) : (
+            <div>Add some movies to your list</div>
+          )}
+
+        </Row>
       </Container>
-
     )
-
   }
-
 }

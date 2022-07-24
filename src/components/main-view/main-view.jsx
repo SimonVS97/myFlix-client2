@@ -188,6 +188,7 @@ export class MainView extends React.Component {
             if (movies.length === 0) return <div className="main-view" />;
             return <Col>
               <ProfileView
+                movies={movies}
                 user={user} />
             </Col>
 
