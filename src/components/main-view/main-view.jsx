@@ -93,6 +93,8 @@ export class MainView extends React.Component {
       });
   }
 
+
+
   // a function that will set displayRegisterForm on true
   toRegister() {
     this.setState({
@@ -173,7 +175,7 @@ export class MainView extends React.Component {
 
           <Route path="/genres/:name" render={({ match, history }) => {
             if (movies.length === 0) return <div className="main-view" />;
-            return <Col md={8}>
+            return <Col>
               <GenreView
                 genre={movies.find(m => m.Genre.Name === match.params.name).Genre}
                 genremovies={movies.filter(movie => movie.Genre.Name === match.params.name)}
@@ -181,6 +183,15 @@ export class MainView extends React.Component {
             </Col>
           }
           } />
+
+          <Route path="/users/:name" render={({ match, history }) => {
+            if (movies.length === 0) return <div className="main-view" />;
+            return <Col>
+              <ProfileView
+                user={user} />
+            </Col>
+
+          }} />
 
 
 
