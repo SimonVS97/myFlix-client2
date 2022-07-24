@@ -28,6 +28,22 @@ export class GenreView extends React.Component {
             </CardGroup>
           </Col>
         </Row>
+        <Row>
+          <Col>
+            <Card>
+              <Card.Body>
+                <Card.Title>Some movies of this genre</Card.Title>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          {genremovies.map(movie => (
+            <Col md={4}>
+              <MovieCard movie={movie} />
+            </Col>
+          ))}
+        </Row>
       </Container>
     )
 
