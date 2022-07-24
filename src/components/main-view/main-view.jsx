@@ -10,6 +10,7 @@ import { RegisterView } from '../register-view/register-view.jsx';
 import { Menubar } from '../navbar/navbar.jsx'
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
+import { ProfileView } from '../user-view/user-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -173,6 +174,7 @@ export class MainView extends React.Component {
             </Col>
           }
           } />
+
 
 
         </Row>

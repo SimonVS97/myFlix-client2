@@ -25273,6 +25273,7 @@ var _registerViewJsx = require("../register-view/register-view.jsx");
 var _navbarJsx = require("../navbar/navbar.jsx");
 var _directorView = require("../director-view/director-view");
 var _genreView = require("../genre-view/genre-view");
+var _userView = require("../user-view/user-view");
 var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
@@ -25370,7 +25371,7 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 129
+                lineNumber: 130
             },
             __self: this,
             children: [
@@ -25378,7 +25379,7 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 130
+                        lineNumber: 131
                     },
                     __self: this
                 }),
@@ -25386,7 +25387,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 131
+                        lineNumber: 132
                     },
                     __self: this,
                     children: [
@@ -25416,7 +25417,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 133
+                                lineNumber: 134
                             },
                             __self: this
                         }),
@@ -25435,7 +25436,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 148
+                                lineNumber: 149
                             },
                             __self: this
                         }),
@@ -25454,7 +25455,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 154
+                                lineNumber: 155
                             },
                             __self: this
                         }),
@@ -25475,7 +25476,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 161
+                                lineNumber: 162
                             },
                             __self: this
                         }),
@@ -25496,7 +25497,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 169
+                                lineNumber: 170
                             },
                             __self: this
                         })
@@ -25530,7 +25531,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-router-dom":"cpyQW","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../login-view/LoginView":"3yOmG","../register-view/register-view.jsx":"F9ahz","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","./main-view.scss":"jyMAr","@parcel/transformer-js/src/esmodule-helpers.js":"5lGN4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lpaPZ","../navbar/navbar.jsx":"63yS7","../director-view/director-view":"ck15y","../genre-view/genre-view":"8WCoL"}],"iYoWk":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-router-dom":"cpyQW","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../login-view/LoginView":"3yOmG","../register-view/register-view.jsx":"F9ahz","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","./main-view.scss":"jyMAr","@parcel/transformer-js/src/esmodule-helpers.js":"5lGN4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lpaPZ","../navbar/navbar.jsx":"63yS7","../director-view/director-view":"ck15y","../genre-view/genre-view":"8WCoL","../user-view/user-view":"fZtM6"}],"iYoWk":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"3QmO2"}],"3QmO2":[function(require,module,exports) {
@@ -44995,6 +44996,38 @@ class GenreView extends _reactDefault.default.Component {
 }
 
   $parcel$ReactRefreshHelpers$5f0a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"5lGN4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lpaPZ"}],"fZtM6":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$f47c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$f47c.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class ProfileView extends _reactDefault.default.Component {
+    render() {
+        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            __source: {
+                fileName: "src/components/user-view/user-view.jsx",
+                lineNumber: 9
+            },
+            __self: this,
+            children: "hello"
+        }));
+    }
+}
+
+  $parcel$ReactRefreshHelpers$f47c.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
