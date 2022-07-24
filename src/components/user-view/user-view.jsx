@@ -147,7 +147,6 @@ export class ProfileView extends React.Component {
                     </Form.Group>
                     <br></br>
                     <Button variant="primary" type="submit" onClick={() => this.changeUserInfo(user, token)}>Submit</Button>
-
                     <Button type="submit" variant="primary" onClick={() => this.deleteUser(user, token)}>Deregister</Button>
                   </Form>
                 </Card.Body>

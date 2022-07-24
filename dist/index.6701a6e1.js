@@ -45692,7 +45692,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                 ,
                                                 __source: {
                                                     fileName: "src/components/user-view/user-view.jsx",
-                                                    lineNumber: 151
+                                                    lineNumber: 150
                                                 },
                                                 __self: this,
                                                 children: "Deregister"
