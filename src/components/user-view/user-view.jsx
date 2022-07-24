@@ -13,10 +13,42 @@ export class ProfileView extends React.Component {
   constructor() {
     super();
     this.state = {
-      profile: null
+      profile: null,
+      username: null,
+      password: null,
+      email: null,
+      birthday: null
     }
   }
 
+  // set Username of info to be updated
+  setUsername(newUsername) {
+    this.setState({
+      username: newUsername
+    });
+  }
+  // set Password of info to be updated
+  setPassword(newPassword) {
+    this.setState({
+      password: newPassword
+    });
+  }
+
+  // set Email of info to be updated
+  setEmail(newEmail) {
+    this.setState({
+      email: newEmail
+    });
+  }
+
+  // set birthday of info to be updated
+  setBirthday(newBirthday) {
+    this.setState({
+      birthday: newBirthday
+    });
+  }
+
+  // Get info on the user, user is passed as an parameter into method
   getUserInfo(user, token) {
     axios.get(`https://movie-app-svs.herokuapp.com/users/${user}`, {
       headers: { Authorization: `Bearer ${token}` }
@@ -24,6 +56,23 @@ export class ProfileView extends React.Component {
       this.setState({
         profile: response.data
       })
+    })
+  }
+  // put request to server to update user information
+  changeUserInfo(user, token) {
+    axios.put(`https://movie-app-svs.herokuapp.com/users/${user}`,
+      { headers: { Authorization: `Bearer ${token}` } },
+      {
+        Username: this.state.username,
+        Password: this.state.password,
+        Email: this.state.email,
+        Birthday: this.state.birthday
+      }
+    ).then(response => {
+      console.log(response.data);
+      window.open('/', '_self');
+    }).catch(error => {
+      console.error(error);
     })
   }
 
@@ -72,6 +121,33 @@ export class ProfileView extends React.Component {
         </Row>
         <Row>
           <Col>
+            <CardGroup>
+              <Card>
+                <Card.Body>
+                  <Form>
+                    <Card.Title>Update your information</Card.Title>
+                    <Form.Group controlId="formUsername">
+                      <Form.Label>Username:</Form.Label>
+                      <Form.Control type="text" onChange={e => setUsername(e.target.value)}></Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="formPassword">
+                      <Form.Label>Password:</Form.Label>
+                      <Form.Control type="password" onChange={e => setPassword(e.target.value)}></Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="formEmail">
+                      <Form.Label>Email:</Form.Label>
+                      <Form.Control type="email" onChange={e => this.setEmail(e.target.value)}></Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="formBirthday">
+                      <Form.Label>Birthday:</Form.Label>
+                      <Form.Control type="date" onChange={e => this.setBirthday(e.target.value)}></Form.Control>
+                    </Form.Group>
+                    <br></br>
+                    <Button variant="primary" type="submit" onClick={this.changeUserInfo(user, token)}>Submit</Button>
+                  </Form>
+                </Card.Body>
+              </Card>
+            </CardGroup>
           </Col>
         </Row>
       </Container>

@@ -45333,9 +45333,38 @@ class ProfileView extends _reactDefault.default.Component {
     constructor(){
         super();
         this.state = {
-            profile: null
+            profile: null,
+            username: null,
+            password: null,
+            email: null,
+            birthday: null
         };
     }
+    // set Username of info to be updated
+    setUsername(newUsername) {
+        this.setState({
+            username: newUsername
+        });
+    }
+    // set Password of info to be updated
+    setPassword(newPassword) {
+        this.setState({
+            password: newPassword
+        });
+    }
+    // set Email of info to be updated
+    setEmail(newEmail) {
+        this.setState({
+            email: newEmail
+        });
+    }
+    // set birthday of info to be updated
+    setBirthday(newBirthday) {
+        this.setState({
+            birthday: newBirthday
+        });
+    }
+    // Get info on the user, user is passed as an parameter into method
     getUserInfo(user, token) {
         _axiosDefault.default.get(`https://movie-app-svs.herokuapp.com/users/${user}`, {
             headers: {
@@ -45345,6 +45374,24 @@ class ProfileView extends _reactDefault.default.Component {
             this.setState({
                 profile: response.data
             });
+        });
+    }
+    // put request to server to update user information
+    changeUserInfo(user, token) {
+        _axiosDefault.default.put(`https://movie-app-svs.herokuapp.com/users/${user}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }, {
+            Username: this.state.username,
+            Password: this.state.password,
+            Email: this.state.email,
+            Birthday: this.state.birthday
+        }).then((response)=>{
+            console.log(response.data);
+            window.open('/', '_self');
+        }).catch((error)=>{
+            console.error(error);
         });
     }
     componentDidMount() {
@@ -45360,45 +45407,45 @@ class ProfileView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_containerDefault.default, {
             __source: {
                 fileName: "src/components/user-view/user-view.jsx",
-                lineNumber: 45
+                lineNumber: 94
             },
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                     __source: {
                         fileName: "src/components/user-view/user-view.jsx",
-                        lineNumber: 46
+                        lineNumber: 95
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 47
+                            lineNumber: 96
                         },
                         __self: this,
                         children: profile ? /*#__PURE__*/ _jsxRuntime.jsx(_cardGroupDefault.default, {
                             __source: {
                                 fileName: "src/components/user-view/user-view.jsx",
-                                lineNumber: 49
+                                lineNumber: 98
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default, {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 50
+                                    lineNumber: 99
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
                                     __source: {
                                         fileName: "src/components/user-view/user-view.jsx",
-                                        lineNumber: 51
+                                        lineNumber: 100
                                     },
                                     __self: this,
                                     children: [
                                         /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
                                             __source: {
                                                 fileName: "src/components/user-view/user-view.jsx",
-                                                lineNumber: 52
+                                                lineNumber: 101
                                             },
                                             __self: this,
                                             children: "Profile information"
@@ -45406,7 +45453,7 @@ class ProfileView extends _reactDefault.default.Component {
                                         /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Text, {
                                             __source: {
                                                 fileName: "src/components/user-view/user-view.jsx",
-                                                lineNumber: 53
+                                                lineNumber: 102
                                             },
                                             __self: this,
                                             children: [
@@ -45417,7 +45464,7 @@ class ProfileView extends _reactDefault.default.Component {
                                         /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Text, {
                                             __source: {
                                                 fileName: "src/components/user-view/user-view.jsx",
-                                                lineNumber: 54
+                                                lineNumber: 103
                                             },
                                             __self: this,
                                             children: [
@@ -45428,7 +45475,7 @@ class ProfileView extends _reactDefault.default.Component {
                                         /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Text, {
                                             __source: {
                                                 fileName: "src/components/user-view/user-view.jsx",
-                                                lineNumber: 55
+                                                lineNumber: 104
                                             },
                                             __self: this,
                                             children: [
@@ -45442,7 +45489,7 @@ class ProfileView extends _reactDefault.default.Component {
                         }) : /*#__PURE__*/ _jsxRuntime.jsx("div", {
                             __source: {
                                 fileName: "src/components/user-view/user-view.jsx",
-                                lineNumber: 60
+                                lineNumber: 109
                             },
                             __self: this
                         })
@@ -45451,31 +45498,31 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                     __source: {
                         fileName: "src/components/user-view/user-view.jsx",
-                        lineNumber: 64
+                        lineNumber: 113
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 65
+                            lineNumber: 114
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default, {
                             __source: {
                                 fileName: "src/components/user-view/user-view.jsx",
-                                lineNumber: 66
+                                lineNumber: 115
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Body, {
                                 __source: {
                                     fileName: "src/components/user-view/user-view.jsx",
-                                    lineNumber: 67
+                                    lineNumber: 116
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
                                     __source: {
                                         fileName: "src/components/user-view/user-view.jsx",
-                                        lineNumber: 68
+                                        lineNumber: 117
                                     },
                                     __self: this,
                                     children: "Update your profile information"
@@ -45487,15 +45534,183 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                     __source: {
                         fileName: "src/components/user-view/user-view.jsx",
-                        lineNumber: 73
+                        lineNumber: 122
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                         __source: {
                             fileName: "src/components/user-view/user-view.jsx",
-                            lineNumber: 74
+                            lineNumber: 123
                         },
-                        __self: this
+                        __self: this,
+                        children: /*#__PURE__*/ _jsxRuntime.jsx(_cardGroupDefault.default, {
+                            __source: {
+                                fileName: "src/components/user-view/user-view.jsx",
+                                lineNumber: 124
+                            },
+                            __self: this,
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default, {
+                                __source: {
+                                    fileName: "src/components/user-view/user-view.jsx",
+                                    lineNumber: 125
+                                },
+                                __self: this,
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Body, {
+                                    __source: {
+                                        fileName: "src/components/user-view/user-view.jsx",
+                                        lineNumber: 126
+                                    },
+                                    __self: this,
+                                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
+                                        __source: {
+                                            fileName: "src/components/user-view/user-view.jsx",
+                                            lineNumber: 127
+                                        },
+                                        __self: this,
+                                        children: [
+                                            /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
+                                                __source: {
+                                                    fileName: "src/components/user-view/user-view.jsx",
+                                                    lineNumber: 128
+                                                },
+                                                __self: this,
+                                                children: "Update your information"
+                                            }),
+                                            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                                                controlId: "formUsername",
+                                                __source: {
+                                                    fileName: "src/components/user-view/user-view.jsx",
+                                                    lineNumber: 129
+                                                },
+                                                __self: this,
+                                                children: [
+                                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                                        __source: {
+                                                            fileName: "src/components/user-view/user-view.jsx",
+                                                            lineNumber: 130
+                                                        },
+                                                        __self: this,
+                                                        children: "Username:"
+                                                    }),
+                                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                                        type: "text",
+                                                        onChange: (e)=>setUsername(e.target.value)
+                                                        ,
+                                                        __source: {
+                                                            fileName: "src/components/user-view/user-view.jsx",
+                                                            lineNumber: 131
+                                                        },
+                                                        __self: this
+                                                    })
+                                                ]
+                                            }),
+                                            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                                                controlId: "formPassword",
+                                                __source: {
+                                                    fileName: "src/components/user-view/user-view.jsx",
+                                                    lineNumber: 133
+                                                },
+                                                __self: this,
+                                                children: [
+                                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                                        __source: {
+                                                            fileName: "src/components/user-view/user-view.jsx",
+                                                            lineNumber: 134
+                                                        },
+                                                        __self: this,
+                                                        children: "Password:"
+                                                    }),
+                                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                                        type: "password",
+                                                        onChange: (e)=>setPassword(e.target.value)
+                                                        ,
+                                                        __source: {
+                                                            fileName: "src/components/user-view/user-view.jsx",
+                                                            lineNumber: 135
+                                                        },
+                                                        __self: this
+                                                    })
+                                                ]
+                                            }),
+                                            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                                                controlId: "formEmail",
+                                                __source: {
+                                                    fileName: "src/components/user-view/user-view.jsx",
+                                                    lineNumber: 137
+                                                },
+                                                __self: this,
+                                                children: [
+                                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                                        __source: {
+                                                            fileName: "src/components/user-view/user-view.jsx",
+                                                            lineNumber: 138
+                                                        },
+                                                        __self: this,
+                                                        children: "Email:"
+                                                    }),
+                                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                                        type: "email",
+                                                        onChange: (e)=>this.setEmail(e.target.value)
+                                                        ,
+                                                        __source: {
+                                                            fileName: "src/components/user-view/user-view.jsx",
+                                                            lineNumber: 139
+                                                        },
+                                                        __self: this
+                                                    })
+                                                ]
+                                            }),
+                                            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                                                controlId: "formBirthday",
+                                                __source: {
+                                                    fileName: "src/components/user-view/user-view.jsx",
+                                                    lineNumber: 141
+                                                },
+                                                __self: this,
+                                                children: [
+                                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                                        __source: {
+                                                            fileName: "src/components/user-view/user-view.jsx",
+                                                            lineNumber: 142
+                                                        },
+                                                        __self: this,
+                                                        children: "Birthday:"
+                                                    }),
+                                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                                        type: "date",
+                                                        onChange: (e)=>this.setBirthday(e.target.value)
+                                                        ,
+                                                        __source: {
+                                                            fileName: "src/components/user-view/user-view.jsx",
+                                                            lineNumber: 143
+                                                        },
+                                                        __self: this
+                                                    })
+                                                ]
+                                            }),
+                                            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                                                __source: {
+                                                    fileName: "src/components/user-view/user-view.jsx",
+                                                    lineNumber: 145
+                                                },
+                                                __self: this
+                                            }),
+                                            /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                                variant: "primary",
+                                                type: "submit",
+                                                onClick: this.changeUserInfo(user, token),
+                                                __source: {
+                                                    fileName: "src/components/user-view/user-view.jsx",
+                                                    lineNumber: 146
+                                                },
+                                                __self: this,
+                                                children: "Submit"
+                                            })
+                                        ]
+                                    })
+                                })
+                            })
+                        })
                     })
                 })
             ]
