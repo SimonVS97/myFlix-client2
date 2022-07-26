@@ -66,6 +66,20 @@ export class ProfileView extends React.Component {
     const movies = this.props.movies;
     let arr = [];
     console.log(favMovies);
+    console.log(movies);
+
+    console.log(movies[0]._id);
+    favMovies.forEach(favm => {
+      console.log(favm);
+      console.log(typeof favm);
+      movies.forEach(m => {
+        console.log(m._id);
+        if (favm === m._id) {
+          console.log("hello");
+        }
+      })
+    })
+    console.log(arr);
   }
 
   // put request to server to update user information
@@ -167,6 +181,12 @@ export class ProfileView extends React.Component {
             </CardGroup>
           </Col>
         </Row>
+      </Container>
+    )
+  }
+}
+
+/*
         <Row>
           {profile ? (
             profile.FavoriteMovies.map((movieId, i) => (
@@ -178,7 +198,4 @@ export class ProfileView extends React.Component {
           )}
 
         </Row>
-      </Container>
-    )
-  }
-}
+*/
