@@ -25332,7 +25332,7 @@ class MainView extends _reactDefault.default.Component {
     }
     getMovies(token) {
         _axiosDefault.default.get('https://movie-app-svs.herokuapp.com/movies', {
-            header: {
+            headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
