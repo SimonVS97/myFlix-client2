@@ -80,7 +80,7 @@ export class MainView extends React.Component {
 
   getMovies(token) {
     axios.get('https://movie-app-svs.herokuapp.com/movies', {
-      header: { Authorization: 'Bearer ${token}' }
+      header: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
         //Assign the result to the state
