@@ -77,11 +77,7 @@ export class ProfileView extends React.Component {
     favMoviesArr = favMovies.map(movieId => {
       return movies.find(m => m._id == movieId)
     })
-    console.log('favMoviesArr', favMoviesArr);
     this.setFavMovies(favMoviesArr);
-    console.log(this.state.favMovies);
-
-
   }
 
   // put request to server to update user information
@@ -117,6 +113,17 @@ export class ProfileView extends React.Component {
       window.open('/', '_self');
     }).catch(error => {
       console.error(error);
+    })
+  }
+
+  // method that sends delete request to delete movie from favorites
+  deleteFavMovie(user, movieID, token) {
+    axios.delete(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    ).then(response => {
+      this.setState({
+        profile: response.data
+      })
     })
   }
 
@@ -186,23 +193,14 @@ export class ProfileView extends React.Component {
           </Col>
         </Row>
         {favMovies !== null &&
-          favMovies.map(m => <MovieCard movie={m} key={m._id}></MovieCard>)
+          favMovies.map(m => (
+            <Col md={4}>
+              <MovieCard movie={m} key={m._id}></MovieCard>
+            </Col>
+          ))
         }
       </Container>
     )
   }
 }
 
-/*
-        <Row>
-          {profile ? (
-            profile.FavoriteMovies.map((movieId, i) => (
-              <Col md={6} lg={4}>
-                <MovieCard movie={movies.find(m => m._id == movieId)} />
-              </Col>
-            ))) : (
-            <div>Add some movies to your list</div>
-          )}
-
-        </Row>
-*/
