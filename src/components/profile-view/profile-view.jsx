@@ -106,6 +106,7 @@ export class ProfileView extends React.Component {
 
   // method that sends delete request
   deleteUser(user, token) {
+    console.log(user);
     axios.delete(`https://movie-app-svs.herokuapp.com/users/${user}`,
       { headers: { Authorization: `Bearer ${token}` } }
     ).then(response => {
@@ -195,7 +196,7 @@ export class ProfileView extends React.Component {
         {favMovies !== null &&
           favMovies.map(m => (
             <Col md={4}>
-              <MovieCard movie={m} key={m._id}></MovieCard>
+              <MovieCard movie={m} token={token} user={user} key={m._id} deleteFavMovie={(user, movieID, token) => this.deleteFavMovie(user, movieID, token)}></MovieCard>
             </Col>
           ))
         }

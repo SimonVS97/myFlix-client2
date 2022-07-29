@@ -13,6 +13,10 @@ export class MovieCard extends React.Component {
   render() {
     const movie = this.props.movie;
     const onMovieClick = this.props.onMovieClick;
+    const token = this.props.token;
+    const user = this.props.user;
+    const deleteFavMovie = this.props.deleteFavMovie;
+    console.log(movie._id);
 
 
     return (
@@ -25,6 +29,10 @@ export class MovieCard extends React.Component {
             <Link to={`/movies/${movie._id}`}>
               <Button variant='link'>Open</Button>
             </Link>
+            <div>{movie._id}</div>
+            {token !== null &&
+              <Button onClick={() => deleteFavMovie(user, movie._id, token)}>Delete from list of favorites</Button>
+            }
           </Card.Body>
         </Card>
       </CardGroup>
