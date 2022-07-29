@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+
 
 import { Link } from 'react-router-dom';
 
@@ -14,10 +16,29 @@ import './movie-view.scss';
 
 export class MovieView extends React.Component {
 
+  // method that will add movie to list of favorites
+  addToFavorites(user, movieID, token) {
+    console.log(user);
+    console.log(token);
+    console.log(movieID);
+    axios.post(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    ).then(response => {
+      this.setFavMovies(response.data.FavoriteMovies)
+    }).catch(function (error) {
+      console.log(error);
+    });
+  }
+
 
   render() {
     const movie = this.props.movie;
     const onBackClick = this.props.onBackClick;
+    const token = this.props.token;
+    const user = this.props.user;
+    console.log(user);
+    console.log(token);
+    console.log(movie);
 
     return (
       <Container>
@@ -36,6 +57,7 @@ export class MovieView extends React.Component {
                     <Button variant="link">Genre</Button>
                   </Link>
                   <Button variant="primary" type="submit" onClick={() => { onBackClick(); }}>Back</Button>
+                  <Button variant="primary" onClick={() => this.addToFavorites(user, movie._id, token)}>Add to Favorites</Button>
                 </Card.Body>
               </Card>
             </CardGroup>

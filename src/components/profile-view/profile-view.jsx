@@ -200,7 +200,14 @@ export class ProfileView extends React.Component {
         {favMovies !== null &&
           favMovies.map(m => (
             <Col md={4}>
-              <MovieCard movie={m} token={token} user={user} key={m._id} deleteFavMovie={(user, movieID, token) => this.deleteFavMovie(user, movieID, token)}></MovieCard>
+              <MovieCard
+                favMovies={favMovies}
+                movie={m}
+                token={token}
+                user={user}
+                key={m._id}
+                deleteFavMovie={(user, movieID, token) => this.deleteFavMovie(user, movieID, token)}>
+              </MovieCard>
             </Col>
           ))
         }

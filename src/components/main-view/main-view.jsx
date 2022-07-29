@@ -94,7 +94,6 @@ export class MainView extends React.Component {
   }
 
 
-
   // a function that will set displayRegisterForm on true
   toRegister() {
     this.setState({
@@ -109,11 +108,14 @@ export class MainView extends React.Component {
     })
   }
 
+
+
   render() {
     const movies = this.state.movies;
     const selectedMovie = this.state.selectedMovie;
     const user = this.state.user;
     const displayRegisterForm = this.state.displayRegisterForm;
+    const token = localStorage.getItem('token');
 
     // Log-out button needs to be placed right
     //<button onClick={() => { this.onLoggedOut() }}>Logout</button>
@@ -157,7 +159,11 @@ export class MainView extends React.Component {
           <Route path="/movies/:movieId" render={({ match, history }) => {
             // movie view
             return <Col md={8}>
-              <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
+              <MovieView
+                token={token}
+                user={user}
+                movie={movies.find(m => m._id === match.params.movieId)}
+                onBackClick={() => history.goBack()} />
             </Col>
           }} />
 

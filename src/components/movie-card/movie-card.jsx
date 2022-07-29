@@ -10,12 +10,17 @@ import './movie-card.scss';
 
 
 export class MovieCard extends React.Component {
+  addToFav() {
+
+  }
+
   render() {
     const movie = this.props.movie;
     const onMovieClick = this.props.onMovieClick;
     const token = this.props.token;
     const user = this.props.user;
     const deleteFavMovie = this.props.deleteFavMovie;
+    const favMovies = this.props.favMovies;
     console.log(movie._id);
 
 
@@ -29,7 +34,7 @@ export class MovieCard extends React.Component {
             <Link to={`/movies/${movie._id}`}>
               <Button variant='link'>Open</Button>
             </Link>
-            {token !== null &&
+            {typeof deleteFavMovie === "function" &&
               <Button onClick={() => deleteFavMovie(user, movie._id, token)}>Delete from list of favorites</Button>
             }
           </Card.Body>
