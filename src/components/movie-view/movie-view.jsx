@@ -16,19 +16,7 @@ import './movie-view.scss';
 
 export class MovieView extends React.Component {
 
-  // method that will add movie to list of favorites
-  addToFavorites(user, movieID, token) {
-    console.log(user);
-    console.log(token);
-    console.log(movieID);
-    axios.post(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`,
-      { headers: { Authorization: `Bearer ${token}` } }
-    ).then(response => {
-      this.setFavMovies(response.data.FavoriteMovies)
-    }).catch(function (error) {
-      console.log(error);
-    });
-  }
+
 
 
   render() {
@@ -36,6 +24,7 @@ export class MovieView extends React.Component {
     const onBackClick = this.props.onBackClick;
     const token = this.props.token;
     const user = this.props.user;
+    const addToFavorites = this.props.addToFavorites;
     console.log(user);
     console.log(token);
     console.log(movie);
@@ -57,7 +46,7 @@ export class MovieView extends React.Component {
                     <Button variant="link">Genre</Button>
                   </Link>
                   <Button variant="primary" type="submit" onClick={() => { onBackClick(); }}>Back</Button>
-                  <Button variant="primary" onClick={() => this.addToFavorites(user, movie._id, token)}>Add to Favorites</Button>
+                  <Button variant="primary" onClick={() => addToFavorites(user, movie._id, token)}>Add to Favorites</Button>
                 </Card.Body>
               </Card>
             </CardGroup>

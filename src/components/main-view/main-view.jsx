@@ -78,6 +78,21 @@ export class MainView extends React.Component {
     });
   }
 
+  // method that will add movie to list of favorites
+  addToFavorites(user, movieID, token) {
+    console.log(user);
+    console.log(token);
+    console.log(movieID);
+
+    axios.post(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`,
+      { headers: { Authorization: `Bearer ${token}` } })
+      .then(response => {
+        console.log(response);
+      }).catch(function (error) {
+        console.log(error);
+      });
+  }
+
   getMovies(token) {
     axios.get('https://movie-app-svs.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}` }
@@ -163,6 +178,7 @@ export class MainView extends React.Component {
                 token={token}
                 user={user}
                 movie={movies.find(m => m._id === match.params.movieId)}
+                addToFavorites={(user, movieID, token) => this.addToFavorites(user, movieID, token)}
                 onBackClick={() => history.goBack()} />
             </Col>
           }} />
