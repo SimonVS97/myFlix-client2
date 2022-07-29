@@ -44905,8 +44905,6 @@ var _navbar = require("react-bootstrap/Navbar");
 var _navbarDefault = parcelHelpers.interopDefault(_navbar);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _navDropdown = require("react-bootstrap/NavDropdown");
-var _navDropdownDefault = parcelHelpers.interopDefault(_navDropdown);
 function Menubar(props) {
     const user = props.user;
     const onLoggedOut = ()=>{
@@ -44923,20 +44921,20 @@ function Menubar(props) {
         sticky: "top",
         __source: {
             fileName: "src/components/navbar/navbar.jsx",
-            lineNumber: 30
+            lineNumber: 29
         },
         __self: this,
         children: /*#__PURE__*/ _jsxRuntime.jsxs(_containerDefault.default, {
             __source: {
                 fileName: "src/components/navbar/navbar.jsx",
-                lineNumber: 31
+                lineNumber: 30
             },
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_navbarDefault.default.Brand, {
                     __source: {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 32
+                        lineNumber: 31
                     },
                     __self: this,
                     children: "myFlix-Cinema"
@@ -44945,13 +44943,13 @@ function Menubar(props) {
                     id: "basic-navbar-nav",
                     __source: {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 33
+                        lineNumber: 32
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_navDefault.default, {
                         __source: {
                             fileName: "src/components/navbar/navbar.jsx",
-                            lineNumber: 34
+                            lineNumber: 33
                         },
                         __self: this,
                         children: [
@@ -44959,7 +44957,7 @@ function Menubar(props) {
                                 href: `/users/${user}`,
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 36
+                                    lineNumber: 35
                                 },
                                 __self: this,
                                 children: user
@@ -44971,25 +44969,16 @@ function Menubar(props) {
                                 },
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 39
+                                    lineNumber: 38
                                 },
                                 __self: this,
                                 children: "Logout"
-                            }),
-                            isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_navDefault.default.Link, {
-                                href: "/",
-                                __source: {
-                                    fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 44
-                                },
-                                __self: this,
-                                children: "Sign-in"
                             }),
                             !isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_navDefault.default.Link, {
                                 href: "/register",
                                 __source: {
                                     fileName: "src/components/navbar/navbar.jsx",
-                                    lineNumber: 47
+                                    lineNumber: 43
                                 },
                                 __self: this,
                                 children: "Sign-up"
@@ -45010,7 +44999,7 @@ $RefreshReg$(_c, "Menubar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Container":"2PRIq","react-bootstrap/Nav":"io07g","react-bootstrap/Navbar":"eYZQl","react-bootstrap/Button":"9CzHT","react-bootstrap/NavDropdown":"6IluF","@parcel/transformer-js/src/esmodule-helpers.js":"5lGN4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lpaPZ"}],"ck15y":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Container":"2PRIq","react-bootstrap/Nav":"io07g","react-bootstrap/Navbar":"eYZQl","react-bootstrap/Button":"9CzHT","@parcel/transformer-js/src/esmodule-helpers.js":"5lGN4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lpaPZ"}],"ck15y":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$f8cc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

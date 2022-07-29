@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export function Menubar(props) {
 
@@ -39,9 +38,6 @@ export function Menubar(props) {
               <Button variant="link" onClick={() => {
                 onLoggedOut()
               }}>Logout</Button>
-            )}
-            {isAuth() && (
-              <Nav.Link href="/">Sign-in</Nav.Link>
             )}
             {!isAuth() && (
               <Nav.Link href="/register">Sign-up</Nav.Link>
