@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { MovieCard } from '../movie-card/movie-card';
+import { Link } from 'react-router-dom';
 
 export class ProfileView extends React.Component {
 
@@ -187,6 +188,9 @@ export class ProfileView extends React.Component {
                     <Button variant="primary" type="submit" onClick={() => this.changeUserInfo(user, token)}>Submit</Button>
                     <Button type="submit" variant="primary" onClick={() => this.deleteUser(user, token)}>Deregister</Button>
                     <Button onClick={() => this.getUserFavMovies()}>FavMovies</Button>
+                    <Link to={`/`}>
+                      <Button variant="link">back</Button>
+                    </Link>
                   </Form>
                 </Card.Body>
               </Card>

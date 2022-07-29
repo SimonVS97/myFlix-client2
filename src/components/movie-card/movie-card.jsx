@@ -29,7 +29,6 @@ export class MovieCard extends React.Component {
             <Link to={`/movies/${movie._id}`}>
               <Button variant='link'>Open</Button>
             </Link>
-            <div>{movie._id}</div>
             {token !== null &&
               <Button onClick={() => deleteFavMovie(user, movie._id, token)}>Delete from list of favorites</Button>
             }
