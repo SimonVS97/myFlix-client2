@@ -67,6 +67,10 @@ export class ProfileView extends React.Component {
     let arr = [];
     console.log(favMovies);
     console.log(movies);
+    const favMoviesObj = favMovies.map(movieId => {
+      return movies.find(m => m._id == movieId)
+    })
+    console.log('favMoviesObj', favMoviesObj);
 
     console.log(movies[0]._id);
     favMovies.forEach(favm => {
