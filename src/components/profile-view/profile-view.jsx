@@ -15,6 +15,7 @@ export class ProfileView extends React.Component {
     super();
     this.state = {
       profile: null,
+      favMovies: null,
       username: null,
       password: null,
       email: null,
@@ -49,6 +50,13 @@ export class ProfileView extends React.Component {
     });
   }
 
+  // set favMovies
+  setFavMovies(newFavMovies) {
+    this.setState({
+      favMovies: newFavMovies
+    })
+  }
+
   // Get info on the user, user is passed as an parameter into method
   getUserInfo(user, token) {
     axios.get(`https://movie-app-svs.herokuapp.com/users/${user}`, {
@@ -64,26 +72,16 @@ export class ProfileView extends React.Component {
   getUserFavMovies() {
     const favMovies = this.state.profile.FavoriteMovies;
     const movies = this.props.movies;
-    let arr = [];
-    console.log(favMovies);
-    console.log(movies);
-    const favMoviesObj = favMovies.map(movieId => {
+    let favMoviesArr = this.state.favMovies;
+
+    favMoviesArr = favMovies.map(movieId => {
       return movies.find(m => m._id == movieId)
     })
-    console.log('favMoviesObj', favMoviesObj);
+    console.log('favMoviesArr', favMoviesArr);
+    this.setFavMovies(favMoviesArr);
+    console.log(this.state.favMovies);
 
-    console.log(movies[0]._id);
-    favMovies.forEach(favm => {
-      console.log(favm);
-      console.log(typeof favm);
-      movies.forEach(m => {
-        console.log(m._id);
-        if (favm === m._id) {
-          console.log("hello");
-        }
-      })
-    })
-    console.log(arr);
+
   }
 
   // put request to server to update user information
@@ -127,9 +125,11 @@ export class ProfileView extends React.Component {
     const movies = this.props.movies;
     const token = localStorage.getItem('token');
     const profile = this.state.profile;
+    const favMovies = this.state.favMovies;
 
 
 
+    console.log('array', favMovies);
     console.log(profile);
 
     return (
@@ -185,6 +185,9 @@ export class ProfileView extends React.Component {
             </CardGroup>
           </Col>
         </Row>
+        {favMovies !== null &&
+          favMovies.map(m => <MovieCard movie={m} key={m._id}></MovieCard>)
+        }
       </Container>
     )
   }
