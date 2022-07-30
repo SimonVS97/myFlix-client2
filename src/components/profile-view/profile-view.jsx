@@ -58,6 +58,33 @@ export class ProfileView extends React.Component {
     })
   }
 
+  // function to validate user input
+  validate = () => {
+    let isRegis = true;
+    if (!this.state.username) {
+      alert('Username Required');
+      isRegis = false;
+    } else if (this.state.username.length < 2) {
+      alert('Username must be 2 characters long');
+      isRegis = false;
+    }
+    if (!this.state.password) {
+      alert('Password Required');
+      isRegis = false;
+    } else if (this.state.password.length < 6) {
+      alert('Password must be 6 characters long');
+      isRegis = false;
+    }
+    if (!this.state.email) {
+      alert('Email required');
+      isRegis = false;
+    } else if (this.state.email.indexOf('@') === -1) {
+      alert('The input is not an email address');
+      isRegis = false;
+    }
+    return isRegis;
+  }
+
   // Get info on the user, user is passed as an parameter into method
   getUserInfo(user, token) {
     axios.get(`https://movie-app-svs.herokuapp.com/users/${user}`, {
@@ -83,20 +110,26 @@ export class ProfileView extends React.Component {
 
   // put request to server to update user information
   changeUserInfo(user, token) {
-    axios.put(`https://movie-app-svs.herokuapp.com/users/${user}`,
-      { headers: { Authorization: `Bearer ${token}` } },
-      {
-        Username: this.state.username,
-        Password: this.state.password,
-        Email: this.state.email,
-        Birthday: this.state.birthday
-      }
-    ).then(response => {
-      console.log(response.data);
-      window.open('/', '_self');
-    }).catch(error => {
-      console.error(error);
-    })
+    console.log('hello');
+    const isRegis = this.validate();
+    if (isRegis) {
+      axios.put(`https://movie-app-svs.herokuapp.com/users/${user}`,
+        { headers: { Authorization: `Bearer ${token}` } },
+        {
+          Username: this.state.username,
+          Password: this.state.password,
+          Email: this.state.email,
+          Birthday: this.state.birthday
+        }
+      ).then(response => {
+        console.log(response.data);
+        window.open('/', '_self');
+      }).catch(error => {
+        console.error(error);
+      })
+    } else {
+      alert('wrong input');
+    }
   }
   // Get profile info from user after mounting component
   componentDidMount() {
