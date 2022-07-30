@@ -84,13 +84,25 @@ export class MainView extends React.Component {
     console.log(token);
     console.log(movieID);
 
-    axios.post(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`,
-      { headers: { Authorization: `Bearer ${token}` } })
-      .then(response => {
-        console.log(response);
-      }).catch(function (error) {
-        console.log(error);
+    fetch(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
       });
+    /*
+        axios.post(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`,
+          { headers: { Authorization: `Bearer ${token}` } })
+          .then(response => {
+            console.log(response);
+          }).catch(function (error) {
+            console.log(error);
+          }); */
   }
 
   getMovies(token) {
